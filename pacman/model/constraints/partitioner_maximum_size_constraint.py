@@ -31,3 +31,12 @@ class PartitionerMaximumSizeConstraint(AbstractPartitionerConstraint):
         :raise None: does not raise any known exceptions
         """
         return self._size
+
+    def __eq__(self, other):
+        if isinstance(other, PartitionerMaximumSizeConstraint):
+            if other.size == self._size:
+                return True
+            else:
+                return False
+        return False
+

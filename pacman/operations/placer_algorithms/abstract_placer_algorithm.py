@@ -108,3 +108,10 @@ class AbstractPlacerAlgorithm(object):
                     "together cannot be satisfied for subvertex {}"
                     .format(subvertex_label))
         return param_to_update
+
+    def total_free_processors(self):
+        """ helper method to deduce partitioning algorithums.
+        :return: the number of processors which have not had anything assigned
+        to it yet.
+        """
+        return self._placement_tracker.total_free_processors()

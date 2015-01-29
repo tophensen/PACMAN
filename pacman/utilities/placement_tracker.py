@@ -76,3 +76,6 @@ class PlacementTracker():
         if len(self._placements_available[key]) > 0:
             return next(iter(self._placements_available[key]))
         return None
+
+    def total_free_processors(self):
+        return self._free_cores
