@@ -144,3 +144,28 @@ class Tags(object):
         if partitioned_vertex not in self._reverse_ip_tags_by_vertex:
             return None
         return self._reverse_ip_tags_by_vertex[partitioned_vertex]
+
+    def get_partitioned_vertex_for_ip_tag(self, iptag):
+        """ returns a partitioned vertex in relation to a iptag
+
+        :param iptag: the iptag to which the corrasponding parittioned vertex
+         is to be located.
+        :return:
+        """
+        for partitioned_vertex in self._ip_tags_by_vertex:
+            if iptag in self._ip_tags_by_vertex[partitioned_vertex]:
+                return partitioned_vertex
+        return None
+
+    def get_partitioned_vertex_for_reverse_ip_tag(self, reverse_iptag):
+        """ returns a partitioned vertex in relation to a iptag
+
+        :param iptag: the iptag to which the corrasponding parittioned vertex
+         is to be located.
+        :return:
+        """
+        for partitioned_vertex in self._reverse_ip_tags_by_vertex:
+            if reverse_iptag in \
+                    self._reverse_ip_tags_by_vertex[partitioned_vertex]:
+                return partitioned_vertex
+        return None

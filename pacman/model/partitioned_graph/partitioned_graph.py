@@ -180,3 +180,15 @@ class PartitionedGraph(object):
         :raise None: Raises no known exceptions
         """
         return self._label
+
+    def get_partitioned_vertex_with_label(self, label):
+        """
+        returns the first vertex which the partitioned graph comes across with
+        the label, or none if there is no partitioned vertex with the label
+        :param label: the label of a given partitioned vertex
+        :return:
+        """
+        for partitioned_vertex in self._subvertices:
+            if partitioned_vertex.label == label:
+                return partitioned_vertex
+        return None
